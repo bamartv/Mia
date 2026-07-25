@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sportzonline</title>
+
+<style>
+
+body{
+font-family:Segoe UI,Arial;
+background:#0a0b10;
+color:white;
+margin:0;
+}
+
+header{
+background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+padding:25px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin-bottom:25px;
+border-radius:10px;
+border:none;
+background:#1a1a2e;
+color:white;
+font-size:15px;
+}
+
+.section-buttons{
+display:flex;
+gap:15px;
+margin-bottom:25px;
+flex-wrap:wrap;
+}
+
+.section-buttons button{
+flex:1;
+padding:14px;
+border:none;
+border-radius:10px;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+background:linear-gradient(90deg,#00d2ff,#3a7bd5);
+color:white;
+transition:0.2s;
+}
+
+.section-buttons button:hover{
+transform:scale(1.05);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+gap:18px;
+}
+
+.card{
+background:#1a1a2e;
+padding:18px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 0 8px rgba(0,0,0,0.6);
+}
+
+button{
+width:100%;
+padding:10px;
+margin-top:6px;
+border:none;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.btn-event{
+background:#3a7bd5;
+color:white;
+}
+
+.btn-channel{
+background:#00f2fe;
+color:black;
+}
+
+.time{
+color:#00d2ff;
+font-weight:bold;
+margin-bottom:6px;
+}
+
+h2{
+margin-top:40px;
+}
+
+</style>
+
+<script>
+
+function toggleSection(id){
+
+var el=document.getElementById(id)
+
+if(el.style.display==="none"){
+el.style.display="block"
+localStorage.setItem("open_section",id)
+}else{
+el.style.display="none"
+localStorage.removeItem("open_section")
+}
+
+}
+
+window.onload=function(){
+
+var saved=localStorage.getItem("open_section")
+
+if(saved){
+var el=document.getElementById(saved)
+if(el){
+el.style.display="block"
+}
+}
+
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+
+var input=document.getElementById("searchInput")
+
+input.addEventListener("input",function(){
+
+var filter=input.value.toLowerCase()
+var cards=document.querySelectorAll(".card")
+
+cards.forEach(function(card){
+
+var text=card.textContent.toLowerCase()
+
+if(text.includes(filter)){
+card.style.display=""
+}else{
+card.style.display="none"
+}
+
+})
+
+})
+
+})
+
+</script>
+
+</head>
+
+<body>
+
+<header>Sportzonline</header>
+
+<div class="container">
+
+<input type="text" id="searchInput" placeholder="Cerca evento o canale">
+
+<div class="section-buttons">
+
+<button onclick="toggleSection('sport_section')">⚽ Sportsonline</button>
+
+<button onclick="toggleSection('pepper_section')">📺 Pepperlive</button>
+
+<button onclick="toggleSection('channels_section')">📡 Canali</button>
+
+</div>
+<div id='sport_section' style='display:none'><h2>Eventi</h2><div class='grid'><div class='card'><div><b></b></div><button class='btn-event' onclick="window.open('LAST UPDATE: 24-07-26 |')">Link 1</button><button class='btn-event' onclick="window.open('SPORTSONLINE.ST |')">Link 2</button><button class='btn-event' onclick="window.open('SPORTSONLINE.ST |')">Link 3</button></div><div class='card'><div class='time'>00:00</div><div><b>  BolÃ­var x GrÃªmio</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd1.php')">Link 1</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/pt/sporttv1.php')">Link 2</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br4.php')">Link 3</button></div><div class='card'><div class='time'>00:30</div><div><b>  Corinthians x Remo</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br1.php')">Link 1</button></div><div class='card'><div class='time'>00:30</div><div><b>  Botafogo x VitÃ³ria</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br5.php')">Link 1</button></div><div class='card'><div class='time'>00:30</div><div><b>  Belgrano x Rosario Central</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd11.php')">Link 1</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/pt/sporttv2.php')">Link 2</button></div><div class='card'><div class='time'>00:30</div><div><b>  Sarmiento x Argentinos Juniors</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd10.php')">Link 1</button></div><div class='card'><div class='time'>02:30</div><div><b>  Boca Juniors x O'Higgins</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd1.php')">Link 1</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd9.php')">Link 2</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/pt/sporttv1.php')">Link 3</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br2.php')">Link 4</button></div><div class='card'><div class='time'>02:30</div><div><b>  Botafogo SP x Juventude</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br6.php')">Link 1</button></div><div class='card'><div class='time'>02:45</div><div><b>  Defensa y Justicia x Aldosivi</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd10.php')">Link 1</button></div><div class='card'><div class='time'>12:30</div><div><b>  Tennis: ATP World Tour 250: Kitzbuhel 2026</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/pt/sporttv4.php')">Link 1</button></div><div class='card'><div class='time'>13:00</div><div><b>  Swansea City x Udinese</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/pt/sporttv2.php')">Link 1</button></div><div class='card'><div class='time'>13:00</div><div><b>  Hungarian F1 GP: Practice 1</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd2.php')">Link 1</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd8.php')">Link 2</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br3.php')">Link 3</button></div><div class='card'><div class='time'>16:45</div><div><b>  Hungarian F1 GP: Practice 2</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd2.php')">Link 1</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd8.php')">Link 2</button><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br3.php')">Link 3</button></div><div class='card'><div class='time'>17:00</div><div><b>  AFC Bournemouth x St. Pauli</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/pt/sporttv2.php')">Link 1</button></div><div class='card'><div class='time'>18:00</div><div><b>  Rosenborg x Manchester United</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd1.php')">Link 1</button></div><div class='card'><div class='time'>19:00</div><div><b>  Antwerp x Olympiakos Piraeus</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd4.php')">Link 1</button></div><div class='card'><div class='time'>19:00</div><div><b>  CSKA Moskva x Baltika</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd10.php')">Link 1</button></div><div class='card'><div class='time'>20:00</div><div><b>  Galatasaray x Monza</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd7.php')">Link 1</button></div><div class='card'><div class='time'>20:30</div><div><b>  PogoÅ Szczecin x Legia Warszawa</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd11.php')">Link 1</button></div><div class='card'><div class='time'>21:45</div><div><b>  Gimnasia Mendoza x Central CÃ³rdoba SdE</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd9.php')">Link 1</button></div><div class='card'><div class='time'>22:00</div><div><b>  Guatemala U20 x Costa Rica U20</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd6.php')">Link 1</button></div><div class='card'><div class='time'>00:00</div><div><b>  VÃ©lez Sarsfield x Instituto</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd9.php')">Link 1</button></div><div class='card'><div class='time'>00:00</div><div><b>  Racing Club x Gimnasia La Plata</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd10.php')">Link 1</button></div><div class='card'><div class='time'>00:00</div><div><b>  Flamengo W x GrÃªmio W</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br1.php')">Link 1</button></div><div class='card'><div class='time'>01:00</div><div><b>  Mexico U20 x Antigua and Barbuda U20</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd6.php')">Link 1</button></div><div class='card'><div class='time'>02:00</div><div><b>  Cruzeiro W x SÃ£o Paulo W</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/bra/br1.php')">Link 1</button></div><div class='card'><div class='time'>02:00</div><div><b>  NASCAR Truck Series: NTCS - Lucas Oil Indianopolis</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/pt/sporttv4.php')">Link 1</button></div><div class='card'><div class='time'>02:15</div><div><b>  Platense x UniÃ³n Santa Fe</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd9.php')">Link 1</button></div><div class='card'><div class='time'>02:15</div><div><b>  HuracÃ¡n x Banfield</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd10.php')">Link 1</button></div><div class='card'><div class='time'>05:00</div><div><b>  Atlante x AmÃ©rica</b></div><button class='btn-event' onclick="window.open('https://w1.sportsonlinee.click/channels/hd/hd6.php')">Link 1</button></div></div></div><div id='channels_section' style='display:none'><h2>Canali TV</h2><div class='grid'><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/sporttv1.php')">ï»¿PORTUGUESE SPORT TV 1</button></div><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/sporttv2.php')">PORTUGUESE SPORT TV 2</button></div><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/sporttv3.php')">PORTUGUESE SPORT TV 3</button></div><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/sporttv4.php')">PORTUGUESE SPORT TV 4</button></div><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/sporttv5.php')">PORTUGUESE SPORT TV 5</button></div><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/eleven1.php')">PORTUGUESE ELEVEN SPORTS 1</button></div><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/eleven2.php')">PORTUGUESE ELEVEN SPORTS 2</button></div><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/eleven3.php')">PORTUGUESE ELEVEN SPORTS 3</button></div><div class='card'><button class='btn-channel' onclick="window.open('https://sportzonline.click/channels/pt/btv.php')">PORTUGUESE BENFICA TV/BTV</button></div></div></div><div id='pepper_section' style='display:none'><h2>Pepperlive</h2><div class='grid'></div></div></div></body></html>
